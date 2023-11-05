@@ -489,7 +489,7 @@ button {
 }
 .box_main:after {
   content: "";
-  background-color: rgb(156, 167, 113);
+  background-color: #afc28f;
   position: absolute;
   width: 420px;
   right: 0px;
@@ -575,7 +575,7 @@ button {
 }
 .box_main_3:after {
   content: "";
-  background-color: rgb(156, 167, 113);
+  background-color: #afc28f;
   position: absolute;
   width: 420px;
   right: 0px;
@@ -630,9 +630,9 @@ button {
 .about_section {
   width: 100%;
   float: left;
-  background-image: url(../images/katalog-bg.jpg);
+  background-image: url(../images/katalog-bg.png);
   height: auto;
-  padding: 90px 0px;
+  padding: 250px 0px;
   background-size: 100%;
   background-repeat: no-repeat;
 }
@@ -923,13 +923,13 @@ button {
 .contact_section {
   width: 100%;
   float: left;
-  background-color: #355764;
+  background-color: #ffffff;
   height: auto;
   padding-bottom: 90px;
 }
 
 .contact_main {
-  width: 50%;
+  /* width: 50%; */
   margin: 0 auto;
   text-align: center;
 }
@@ -937,15 +937,15 @@ button {
 .request_text {
   width: 100%;
   float: left;
-  font-size: 40px;
+  font-size: 30px;
   font-weight: bold;
   text-align: center;
-  color: #ffffff;
+  color: black;
   padding-bottom: 10px;
 }
 
 .form-group {
-  margin-bottom: 30px;
+  margin-bottom: 10px;
 }
 
 .email-bt {

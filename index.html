@@ -49,10 +49,95 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/noframework.waypoints.min.js"></script>
   </head>
   <body>
+    <nav
+      class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark"
+      style="background-color: #83a526 !important"
+    >
+      <div class="container">
+        <a class="navbar-brand mr-5" href=""
+          ><img
+            src="https://mabello.id/assets/images/logo/ss.png"
+            class="img-fluit brand-logo"
+            style="width: 135px"
+        /></a>
+        <ul class="nav">
+          <li class="nav-item">
+            <a
+              class="nav-link"
+              style="color: white"
+              aria-current="page"
+              href="#"
+              >Beranda</a
+            >
+          </li>
+          <li class="nav-item dropdown">
+            <a
+              class="nav-link dropdown-toggle"
+              style="color: white"
+              data-bs-toggle="dropdown"
+              href="#"
+              role="button"
+              aria-expanded="false"
+              >Kategori</a
+            >
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="#">Action</a></li>
+              <li><a class="dropdown-item" href="#">Another action</a></li>
+              <li><a class="dropdown-item" href="#">Something else here</a></li>
+              <li><hr class="dropdown-divider" /></li>
+              <li><a class="dropdown-item" href="#">Separated link</a></li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" style="color: white" href="#">Testimoni</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" style="color: white" aria-disabled="true"
+              >Konfirmasi Pembayaran</a
+            >
+          </li>
+          <li class="nav-item">
+            <a
+              class="nav-link"
+              style="color: white"
+              aria-disabled="true"
+              href=""
+              >Katalog</a
+            >
+          </li>
+          <li class="nav-item">
+            <a
+              class="nav-link"
+              style="color: white"
+              aria-disabled="true"
+              href="reseller.html"
+              >Reseller</a
+            >
+          </li>
+        </ul>
+
+        <div>
+          <i class="fa text-light mr-3 icon-search-navbar fa-search"></i>
+          <a href="" class="btn btn-sm btn-outline-light ml-2"
+            ><i class="fa fa-sign-in-alt"></i> Masuk</a
+          >
+        </div>
+      </div>
+    </nav>
+
+    <!-- <div class="search-form">
+  <i class="fa fa-times"></i>
+  <form action="" method="get">
+    <input type="text" placeholder="Cari produk" autocomplete="off" name="q">
+    <button type="submit">Cari</i></button>
+  </form>
+</div>
+<div class="top-nav"></div> -->
+
     <!-- about section start -->
     <div class="about_section layout_padding">
       <div class="container">
-        <h1 class="about_taital" style="font-size: 100px">Katalog</h1>
+        <h1 class="about_taital" style="font-size: 100px"></h1>
         <!-- <p class="about_text">
           It is a long established fact that a reader will be distracted by the
           readable content of a page when looking at its layout. The point of
@@ -511,6 +596,78 @@
         </a>
       </div>
     </div>
+
+    <script
+      src="https://code.jquery.com/jquery-3.4.1.min.js"
+      integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      type="text/javascript"
+      src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+      integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+      crossorigin="anonymous"
+    ></script>
+    <script src="<?= base_url(); ?>assets/js/jquery.countdown.min.js"></script>
+    <script>
+      $("i.icon-search-navbar").on("click", function () {
+        $("div.search-form").slideDown("fast");
+        $("div.search-form input").focus();
+      });
+
+      $("div.search-form i").on("click", function () {
+        $("div.search-form").slideUp("fast");
+      });
+
+      const years = new Date().getFullYear();
+      $("#footer-cr-years").text(years);
+
+      $("#countdownPromo").countdown({
+        date: "<?= $setting['promo_time']; ?>",
+        render: function (data) {
+          var el = $(this.el);
+          el.empty()
+            .append(this.leadingZeros(data.days, 2) + " : ")
+            .append(this.leadingZeros(data.hours, 2) + " : ")
+            .append(this.leadingZeros(data.min, 2) + " : ")
+            .append(this.leadingZeros(data.sec, 2));
+        },
+      });
+
+      //loading screen
+      $(window).ready(function () {
+        $(".loading-animation-screen").fadeOut("slow");
+      });
+
+      // detail
+      $("#detailBtnPlusJml").click(function () {
+        var val = parseInt($(this).prev("input").val());
+        $(this)
+          .prev("input")
+          .val(val + 1)
+          .change();
+        return false;
+      });
+
+      $("#detailBtnMinusJml").click(function () {
+        var val = parseInt($(this).next("input").val());
+        if (val !== 1) {
+          $(this)
+            .next("input")
+            .val(val - 1)
+            .change();
+        }
+        return false;
+      });
+    </script>
 
     <!-- Javascript files-->
     <script src="js/jquery.min.js"></script>
